@@ -19,3 +19,25 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->defineAs(App\User::class, 'admin', function ($faker) use ($factory) {
+    $user = $factory->raw(App\User::class);
+
+    return array_merge($user, ['admin' => true]);
+});
+
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'slug' => str_slug($faker->name),
+        'content' => $faker->text(500),
+        'post_type' => 'post',
+        'drafted_at' => Carbon\Carbon::now(),
+    ];
+});
+
+$factory->defineAs(App\Post::class, 'page', function ($faker) use ($factory) {
+    $user = $factory->raw(App\Post::class);
+
+    return array_merge($user, ['post_type' => 'page']);
+});
