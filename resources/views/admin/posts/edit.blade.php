@@ -17,6 +17,7 @@
 	<section class="content">
 		<form method="post" action="{{route('admin.posts.update', ['posts' => $post->id])}}">
 			{!! csrf_field() !!}
+			{!! method_field('put') !!}
 	    	<div class="row">
 	        	<div class="col-md-8">
 					<div class="form-group">
