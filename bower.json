@@ -1,0 +1,21 @@
+{
+  "name": "bigbearweb",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Christopher <git@idragonmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.6.3"
+  }
+}
