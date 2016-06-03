@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "laravolt/avatar": "^1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -42,6 +43,9 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
+        ],
+        "test": [
+            "vendor\\bin\\phpunit"
         ]
     },
     "config": {

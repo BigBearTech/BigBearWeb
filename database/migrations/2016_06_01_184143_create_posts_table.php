@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('slug')->nullable();
             $table->text('content')->nullable();
             $table->string('post_type', 50)->default('post');
-            $table->datetime('drafted_at');
+            $table->datetime('drafted_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

@@ -7,10 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
+use App\Http\Requests\StorePageRequest;
+use App\Http\Requests\UpdatePageRequest;
 
-class PostController extends Controller
+class PageController extends Controller
 {
 	public function __construct()
 	{
@@ -19,14 +19,14 @@ class PostController extends Controller
 	}
 
 	/**
-	 *	Show all the posts to the user.
+	 *	Show all the pages to the user.
 	 *
 	 *	@return Response
 	 */
     public function index()
     {
-    	$posts = Post::all();
-    	return view('admin.posts.index')->with(compact('posts'));
+    	$pages = Post::where('post_type', 'page')->get();
+    	return view('admin.pages.index')->with(compact('pages'));
     }
 
     /**
@@ -36,7 +36,7 @@ class PostController extends Controller
      */
     public function create()
     {
-    	return view('admin.posts.create');
+    	return view('admin.pages.create');
     }
 
     /**
@@ -44,17 +44,18 @@ class PostController extends Controller
    	 *
    	 *	@return Redirect
    	 */
-    public function store(StorePostRequest $request)
+    public function store(StorePageRequest $request)
     {
     	$post = new Post;
     	$post->name = $request->input('name');
     	$post->slug = str_slug($request->input('name'));
     	$post->content = $request->input('content');
+    	$post->post_type = 'page';
     	$post->save();
     	$request->user()->posts()->save($post);
 
     	session()->flash('success', 'Successfully created post!');
-    	return redirect()->route('admin.posts.index');
+    	return redirect()->route('admin.pages.index');
     }
 
     /**
@@ -62,9 +63,9 @@ class PostController extends Controller
    	 *
    	 *	@return Response
    	 */
-    public function edit(Post $posts)
+    public function edit(Post $pages)
     {
-    	return view('admin.posts.edit')->with(['post' => $posts]);
+    	return view('admin.pages.edit')->with(['post' => $pages]);
     }
 
     /**
@@ -72,9 +73,9 @@ class PostController extends Controller
      *
      *	@return Redirect
      */
-    public function update(UpdatePostRequest $request, Post $posts)
+    public function update(UpdatePageRequest $request, Post $pages)
     {
-    	$post = $posts;
+    	$post = $pages;
     	$post->name = $request->input('name');
     	$post->slug = str_slug($request->input('slug'));
     	$post->content = $request->input('content');
@@ -89,9 +90,9 @@ class PostController extends Controller
      *
      *	@return Redirect
      */
-    public function destroy(Post $posts)
+    public function destroy(Post $pages)
     {
-    	$posts->delete();
+    	$pages->delete();
 
     	session()->flash('success', 'Successfully deleted post!');
     	return redirect()->back();

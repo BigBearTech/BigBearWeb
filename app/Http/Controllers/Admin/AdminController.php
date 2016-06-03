@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class AdminController extends Controller
 	 */
     public function index()
     {
-    	return view('admin.home');
+    	$countUsers = User::count();
+    	return view('admin.home')->with(compact('countUsers'));
     }
 }
