@@ -80,6 +80,14 @@
           </ul>
         </li>
         <!-- /.End Pages -->
+        <!-- Start Comments -->
+        <li>
+          <a href="{{route('admin.comments.index')}}">
+            <i class="fa fa-comments-o"></i>
+            <span>Comments</span> 
+          </a>
+        </li>
+        <!-- /.End Pages -->
         <!-- Start Users -->
         <li class="treeview">
           <a href="#">

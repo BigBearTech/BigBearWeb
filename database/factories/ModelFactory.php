@@ -41,3 +41,13 @@ $factory->defineAs(App\Post::class, 'page', function ($faker) use ($factory) {
 
     return array_merge($user, ['post_type' => 'page']);
 });
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        'url' => $faker->domainName,
+        'content' => $faker->realText,
+        'status' => 'approved',
+    ];
+});
