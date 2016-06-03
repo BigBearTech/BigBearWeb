@@ -22,6 +22,7 @@ class AdminPostTest extends TestCase
 
         $this->actingAs($user)
         ->visit('/admin/posts')
+        ->assertViewHasAll(['posts'])
         ->see('Posts')
         ->see($post->name);
     }
