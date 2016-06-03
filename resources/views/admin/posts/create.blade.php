@@ -58,7 +58,7 @@
 
 						</div>
 						<div class="box-footer">
-							<button name="publish" class="btn btn-danger" name="action">Publish</button>
+							<button name="publish" class="btn btn-danger" name="action">Save</button>
 						</div>
 					</div>
 					<!-- /.Publish Box -->
