@@ -39,7 +39,7 @@ class AdminPostTest extends TestCase
         ->visit('/admin/posts/create')
         ->type('This is a good post', 'name')
         ->type('This is the posts body', 'content')
-        ->press('Create');
+        ->press('Save');
 
         $this->seeInDatabase('posts', [
             'name' => 'This is a good post',

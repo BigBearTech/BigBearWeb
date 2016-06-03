@@ -20,6 +20,7 @@ class AdminTest extends TestCase
 
         $this->actingAs($user)
         ->visit('/admin')
+        ->assertViewHasAll(['countUsers'])
         ->see('BigBearWeb');
     }
 
