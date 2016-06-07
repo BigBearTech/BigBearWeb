@@ -80,6 +80,77 @@
           </ul>
         </li>
         <!-- /.End Pages -->
+        <!-- Start Media -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-picture-o"></i>
+            <span>Media</span> 
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.pages.index')}}">
+                <span>All Media</span> 
+              </a>
+            </li>
+            <li>
+              <a href="{{route('admin.pages.create')}}">
+                <span>Add New</span> 
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End Media -->
+        <!-- Start Comments -->
+        <li>
+          <a href="{{route('admin.comments.index')}}">
+            <i class="fa fa-comments-o"></i>
+            <span>Comments</span> 
+          </a>
+        </li>
+        <!-- /.End Pages -->
+        <!-- Start Appearance -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-paint-brush"></i>
+            <span>Appearance</span> 
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.users.index')}}">
+                <span>All Users</span> 
+              </a>
+            </li>
+            <li>
+              <a href="{{route('admin.users.create')}}">
+                <span>Add New</span> 
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End Appearance -->
+        <!-- Start Users -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i>
+            <span>Users</span> 
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.users.index')}}">
+                <span>All Users</span> 
+              </a>
+            </li>
+            <li>
+              <a href="{{route('admin.users.create')}}">
+                <span>Add New</span> 
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End Users -->
       </ul>
       <!-- /.sidebar-menu -->
     </section>

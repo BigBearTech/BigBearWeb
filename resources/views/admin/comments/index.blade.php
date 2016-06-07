@@ -4,15 +4,16 @@
 	<!-- Page Header -->
 	<section class="content-header">
       <h1>
-        Pages
-        <small>Your single pages</small>
+        Comments
+        <small>Your blog post comments</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Pages</li>
+        <li class="active">Comments</li>
       </ol>
     </section>
     <!-- /.End Page Header -->
+
 
     <section class="content">
     	<div class="row">
@@ -20,38 +21,38 @@
 			    <table id="example1" class="table table-bordered table-striped" cellspacing="0" width="100%">
 			        <thead>
 			            <tr>
-			            	<th>Title</th>
-			            	<th>Slug</th>
 			            	<th>Author</th>
-			            	<th>Date</th>
+			            	<th>Comment</th>
+			            	<th>In Response To</th>
+			            	<th>Submitted On</th>
 			            	<th>Action</th>
 			            </tr>
 			        </thead>
 				    <tfoot>
 					    <tr>
-					    	<th>Title</th>
-					    	<th>Slug</th>
-			            	<th>Author</th>
-			            	<th>Date</th>
+					    	<th>Author</th>
+					    	<th>Comment</th>
+			            	<th>In Response To</th>
+			            	<th>Submitted On</th>
 			            	<th>Action</th>
 					    </tr>
 					</tfoot>
 			        <tbody>
-			        	@foreach($pages as $page)
+			        	@foreach($comments as $comment)
 				        <tr>
-				            <td>{{$page->name}}</td>
-				            <td>{{$page->slug}}</td>
-				            <td>{{$page->user->name}}</td>
-				            <td>{{$page->updated_at->diffForHumans()}}</td>
+				            <td>{{$comment->name}}</td>
+				            <td>{{$comment->content}}</td>
+				            <td>{{$comment->post->name}}</td>
+				            <td>{{$comment->updated_at->diffForHumans()}}</td>
 				            <td>
-				            	<a id="edit-page-{{ $page->id }}" href="{{route('admin.pages.edit', ['pages' => $page->id])}}" class="btn btn-link">
+				            	<a id="edit-comment-{{ $comment->id }}" href="{{route('admin.comments.edit', ['comments' => $comment->id])}}" class="btn btn-link">
 							        Edit
 							    </a>
-				            	<form style="display:inline;" action="{{ route('admin.pages.destroy', ['pages' => $page->id]) }}" method="POST">
+				            	<form style="display:inline;" action="{{ route('admin.comments.destroy', ['comments' => $comment->id]) }}" method="POST">
 							        {{ csrf_field() }}
 							        {{ method_field('DELETE') }}
 
-							        <button type="submit" id="delete-page-{{ $page->id }}" class="btn btn-link">
+							        <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-link">
 							            Delete
 							        </button>
 							    </form>

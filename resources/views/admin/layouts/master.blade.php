@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css">
+    <!-- DataTables Responsive -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
+    <!-- DataTables Fixed Header -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
     <!-- Custom CSS -->
     <link href="{{ asset('css/backend.css') }}" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
@@ -41,20 +45,29 @@
     <!-- DataTables -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <!-- DataTables Responsive -->
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
+    <!-- DataTables Fixed Header -->
+    <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"></script>
     <!-- CKEditor -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.9/ckeditor.js"></script>
     <!-- <script src="{{ asset('js/backend.js') }}"></script> -->
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     <script>
         $(function () {
-            $("#example1").DataTable();
+            $("#example1").DataTable({
+                responsive: true,
+                fixedHeader: true
+            });
             $('#example2').DataTable({
               "paging": true,
               "lengthChange": false,
               "searching": true,
               "ordering": true,
               "info": true,
-              "autoWidth": false
+              "autoWidth": false,
+              "responsive": true
             });
             CKEDITOR.replace('bbeditor');
         });
