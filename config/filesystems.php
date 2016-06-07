@@ -48,6 +48,16 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root' => storage_path('media'),
+        ],
+
+        'themes' => [
+            'driver' => 'local',
+            'root' => resource_path('views/themes'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
