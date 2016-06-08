@@ -89,12 +89,12 @@
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="{{route('admin.pages.index')}}">
+              <a href="{{route('admin.media.index')}}">
                 <span>All Media</span> 
               </a>
             </li>
             <li>
-              <a href="{{route('admin.pages.create')}}">
+              <a href="{{route('admin.media.create')}}">
                 <span>Add New</span> 
               </a>
             </li>

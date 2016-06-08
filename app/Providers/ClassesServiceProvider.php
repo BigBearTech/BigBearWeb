@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Classes\Theme;
+use App\Classes\Media;
 
 class ClassesServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,9 @@ class ClassesServiceProvider extends ServiceProvider
     {
         $this->app->singleton('Theme', function ($app) {
             return new Theme();
+        });
+        $this->app->singleton('Media', function ($app) {
+            return new Media();
         });
     }
 }

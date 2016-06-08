@@ -4,6 +4,9 @@ namespace App\Classes;
 
 use Illuminate\Support\Facades\Storage;
 
+use Carbon\Carbon;
+use Intervention\Image\ImageManagerStatic as Image;
+
 /**
 * 
 */
@@ -12,7 +15,7 @@ class Media
 	private function createStorageMedia()
 	{
 		$now = Carbon::now();
-		Storage::disk('media')->makeDirectory('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month);
+		Storage::disk('media')->makeDirectory($now->year . DIRECTORY_SEPARATOR . $now->month);
 	}
 
 	public function upload($file)
@@ -24,13 +27,14 @@ class Media
 		$getClientOriginalExtension = $file->getClientOriginalExtension();
 		$getSize = $file->getSize();
 		$getMimeType = $file->getMimeType();
-		$path = storage_path('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . );
+		$path = storage_path('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . $getClientOriginalName . '-' . str_random(5) . '.jpg');
 
 		// Check if it's a valid file
 		if(!$file->isValid())
 		{
 			return false;
 		}
+
 
 		// Make sure the media directory is in the storage
 		$this->createStorageMedia();
@@ -41,6 +45,8 @@ class Media
             $constraint->upsize();
         })->save($path);
 
+        // Save image to db
 
+        return true;
 	}
 }
