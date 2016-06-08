@@ -80,6 +80,27 @@
           </ul>
         </li>
         <!-- /.End Pages -->
+        <!-- Start Testimonials -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-commenting"></i>
+            <span>Testimonials</span> 
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.testimonials.index')}}">
+                <span>All Testimonials</span> 
+              </a>
+            </li>
+            <li>
+              <a href="{{route('admin.testimonials.create')}}">
+                <span>Add New</span> 
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End Testimonials -->
         <!-- Start Media -->
         <li class="treeview">
           <a href="#">

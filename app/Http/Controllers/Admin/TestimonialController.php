@@ -26,4 +26,14 @@ class TestimonialController extends Controller
     	$testimonials = Testimonial::all();
     	return view('admin.testimonials.index')->with(compact('testimonials'));
     }
+
+	/**
+	 *	Show the create view for the testimonials
+	 *
+	 *	@return Response
+	 */
+    public function create()
+    {
+    	return view('admin.testimonials.create');
+    }
 }
