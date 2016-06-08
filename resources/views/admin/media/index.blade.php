@@ -38,7 +38,12 @@
 			        <tbody>
 			        	@foreach($attachments as $attachment)
 				        <tr>
-				            <td>{{$attachment->file_name}}</td>
+				            <td>
+				            	<div>
+				            		<img src="{{app('Media')->getImage($attachment->path, ['w' => 100, 'h' => 100])}}" class="img-reponsive">
+				            	</div>
+				            	{{$attachment->file_name}}
+				            </td>
 				            <td>{{$attachment->user->name}}</td>
 				            <td>{{$attachment->updated_at->diffForHumans()}}</td>
 				            <td>

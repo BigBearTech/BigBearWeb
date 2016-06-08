@@ -35,4 +35,21 @@ class MediaController extends Controller
 
 		return response()->json(['success' => true, 'file' => $attachment]);
 	}
+
+	public function edit(Attachment $media)
+	{
+		return view('admin.media.edit', ['media' => $media]);
+	}
+
+	public function update(Request $request, Attachment $media)
+	{
+		$media->title = $request->input('title');
+		$media->caption = $request->input('caption');
+		$media->alt_text = $request->input('alt_text');
+		$media->description = $request->input('description');
+		$media->save();
+
+		session()->flash('success', 'Successfully saved attachment!');
+		return redirect()->back();
+	}
 }

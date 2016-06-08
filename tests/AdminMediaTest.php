@@ -35,6 +35,16 @@ class AdminMediaTest extends TestCase
 	    return new \Illuminate\Http\UploadedFile($path, null, $mime, null, null, true);
 	}
 
+	private function uploadImage($user)
+	{
+		Storage::disk('media')->deleteDirectory(\Carbon\Carbon::now()->year);
+		$file = $this->prepareFileUpload('public/upload/upload.jpg');
+
+        $this->actingAs($user);
+	    $this->call('POST', '/admin/media', [], [], ['file' => $file], []);
+    	$this->assertResponseOk();
+	}
+
     /**
      * Test that the file gets uploaded
      *
@@ -42,12 +52,28 @@ class AdminMediaTest extends TestCase
      */
     public function testMediaPost()
     {
-    	Storage::disk('media')->deleteDirectory(\Carbon\Carbon::now()->year);
 	    $user = factory(User::class, 'admin')->create();
-	    $file = $this->prepareFileUpload('public/upload/upload.jpg');
+	    $this->uploadImage($user);
+    }
 
-        $this->actingAs($user);
-	    $this->call('POST', '/admin/media', [], [], ['file' => $file], []);
-    	$this->assertResponseOk();
+    /**
+     *	Test that the file can be edited.
+     *
+     *	@return void
+     */
+    public function testMediaEdit()
+    {
+    	$user = factory(User::class, 'admin')->create();
+    	$this->uploadImage($user);
+
+    	$this->actingAs($user)
+    		->visit(route('admin.media.edit', ['media' => 1]))
+    		->type('image', 'title')
+    		->type('123 this is a cool caption', 'caption')
+    		->type('This is a nice image', 'alt_text')
+    		->type('This is a cool description', 'description')
+    		->press('Update');
+
+    	$this->seeInDatabase('attachments', ['title' => 'image']);
     }
 }
