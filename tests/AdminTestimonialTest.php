@@ -20,6 +20,7 @@ class AdminTestimonialTest extends TestCase
         $testimonial = factory(Testimonial::class)->create();
 
         $this->actingAs($user)
-        ->visit('/admin/testimonials');
+        ->visit('/admin/testimonials')
+        ->see($testimonial->fullname);
     }
 }

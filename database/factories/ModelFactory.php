@@ -51,3 +51,17 @@ $factory->define(App\Comment::class, function (Faker\Generator $faker) {
         'status' => 'approved',
     ];
 });
+
+$factory->define(App\Testimonial::class, function (Faker\Generator $faker) {
+    return [
+        'display_name' => $faker->name,
+        'fullname' => $faker->name,
+        'email' => $faker->safeEmail,
+        'location' => $faker->address,
+        'url' => $faker->domainName,
+        'content' => $faker->realText,
+        'status' => 'approved',
+        'display_url' => true,
+        'featured' => false,
+    ];
+});

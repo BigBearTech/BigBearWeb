@@ -7,3 +7,4 @@ Route::resource('pages', 'PageController');
 Route::resource('users', 'UserController');
 Route::resource('comments', 'CommentController');
 Route::resource('media', 'MediaController');
+Route::resource('testimonials', 'TestimonialController');
