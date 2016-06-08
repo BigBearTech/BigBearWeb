@@ -2,6 +2,8 @@
 
 namespace App\Classes;
 
+use App\Attachment;
+
 use Illuminate\Support\Facades\Storage;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ class Media
 		Storage::disk('media')->makeDirectory($now->year . DIRECTORY_SEPARATOR . $now->month);
 	}
 
-	public function upload($file)
+	public function upload($file, $db=true)
 	{
 		// Get the vars
 		$now = Carbon::now();
@@ -27,7 +29,8 @@ class Media
 		$getClientOriginalExtension = $file->getClientOriginalExtension();
 		$getSize = $file->getSize();
 		$getMimeType = $file->getMimeType();
-		$path = storage_path('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . $getClientOriginalName . '-' . str_random(5) . '.jpg');
+		$fileName = \pathinfo($getClientOriginalName, PATHINFO_FILENAME) . '-' . str_random(5) . '.jpg';
+		$path = storage_path('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . $fileName);
 
 		// Check if it's a valid file
 		if(!$file->isValid())
@@ -45,7 +48,25 @@ class Media
             $constraint->upsize();
         })->save($path);
 
+        // Get the image exif
+        $exif = Image::make($file)->exif();
+
         // Save image to db
+        if($db)
+        {
+        	$attachment = new Attachment;
+        	$attachment->user_id = auth()->user()->id;
+        	$attachment->path = 'media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . $fileName;
+        	$attachment->file_name = $fileName;
+        	$attachment->original_name = $getClientOriginalName;
+        	$attachment->original_extension = $getClientOriginalExtension;
+        	$attachment->size = $getSize;
+        	$attachment->mime_type = $getMimeType;
+        	$attachment->exif = $exif;
+        	$attachment->save();
+
+        	return $attachment;
+        }
 
         return true;
 	}

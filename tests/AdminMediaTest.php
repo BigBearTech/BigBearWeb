@@ -19,7 +19,8 @@ class AdminMediaTest extends TestCase
     	$user = factory(User::class, 'admin')->create();
 
         $this->actingAs($user)
-        	->visit('/admin/media');
+        	->visit('/admin/media')
+        	->see('Media Manager');
 
     }
 

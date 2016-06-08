@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Attachment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -17,15 +18,21 @@ class MediaController extends Controller
 
 	public function index()
 	{
-		# code...
+		$attachments = Attachment::all();
+		return view('admin.media.index')->with(compact('attachments'));
+	}
+
+	public function create()
+	{
+		return view('admin.media.create');
 	}
 
 	public function store(Request $request)
 	{
 		$file = $request->file('file');
 
-		app('Media')->upload($file);
+		$attachment = app('Media')->upload($file);
 
-		return response()->json(['success' => true]);
+		return response()->json(['success' => true, 'file' => $attachment]);
 	}
 }
