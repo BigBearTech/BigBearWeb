@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', 'AdminController@index');
+Route::get('/', 'AdminController@index')->name('admin.index');
 
 Route::resource('posts', 'PostController');
 Route::resource('pages', 'PageController');
