@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Classes\Theme;
 use App\Classes\Media;
+use App\Classes\Search;
 
 class ClassesServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,9 @@ class ClassesServiceProvider extends ServiceProvider
         });
         $this->app->singleton('Media', function ($app) {
             return new Media();
+        });
+        $this->app->singleton('Search', function ($app) {
+            return new Search();
         });
     }
 }
