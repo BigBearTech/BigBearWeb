@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\StoreTestimonialRequest;
+use App\Http\Requests\UpdateTestimonialRequest;
 
 class TestimonialController extends Controller
 {
@@ -35,5 +37,63 @@ class TestimonialController extends Controller
     public function create()
     {
     	return view('admin.testimonials.create');
+    }
+
+    /**
+     *	Store the testimonial
+     *
+     *	@return Response
+     */
+    public function store(StoreTestimonialRequest $request)
+    {
+    	$testimonial = new Testimonial;
+    	$testimonial->user_id = $request->user()->id;
+    	$testimonial->display_name = $request->input('display_name');
+    	$testimonial->fullname = $request->input('fullname');
+    	$testimonial->email = $request->input('email');
+    	$testimonial->location = $request->input('location');
+    	$testimonial->url = $request->input('url');
+    	$testimonial->content = $request->input('content');
+    	$testimonial->display_url = $request->input('display_url');
+    	$testimonial->featured = $request->input('featured');
+    	$testimonial->status = $request->input('status');
+    	$testimonial->save();
+
+    	session()->flash('success', 'Successfully stored testimonial!');
+    	return redirect()->route('admin.testimonials.edit', ['testimonials' => $testimonial->id]);
+    }
+
+    /**
+     *	Show the edit for testimonial
+     *
+     *	@return Response
+     */
+    public function edit(Testimonial $testimonials)
+    {
+    	return view('admin.testimonials.edit', ['testimonial' => $testimonials]);
+    }
+
+    /**
+     *	Update a certain testimonial
+     *
+     *	@return Response
+     */
+    public function update(UpdateTestimonialRequest $request, Testimonial $testimonials)
+    {
+    	$testimonial = $testimonials;
+    	$testimonial->user_id = $request->user()->id;
+    	$testimonial->display_name = $request->input('display_name');
+    	$testimonial->fullname = $request->input('fullname');
+    	$testimonial->email = $request->input('email');
+    	$testimonial->location = $request->input('location');
+    	$testimonial->url = $request->input('url');
+    	$testimonial->content = $request->input('content');
+    	$testimonial->display_url = $request->input('display_url');
+    	$testimonial->featured = $request->input('featured');
+    	$testimonial->status = $request->input('status');
+    	$testimonial->save();
+
+    	session()->flash('success', 'Successfully updated testimonial!');
+    	return redirect()->back();
     }
 }
