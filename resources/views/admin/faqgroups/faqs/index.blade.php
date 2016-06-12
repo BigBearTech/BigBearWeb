@@ -4,12 +4,13 @@
 	<!-- Page Header -->
 	<section class="content-header">
       <h1>
-        FAQ Groups
-        <small>Your FAQ Groups that hold the FAQ's</small>
+        FAQ's
+        <small>Your FAQ's that are in groups</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">FAQ Groups</li>
+        <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="{{route('admin.faqgroups.index')}}"><i class="fa fa-life-ring"></i> FAQ Groups</a></li>
+        <li class="active">FAQ's</li>
       </ol>
     </section>
     <!-- /.End Page Header -->
@@ -36,27 +37,24 @@
 					    </tr>
 					</tfoot>
 			        <tbody>
-			        	@foreach($faqgroups as $faqgroup)
+			        	@foreach($faqs as $faq)
 				        <tr>
-				            <td>{{$faqgroup->title}}</td>
-				            @if(!is_null($faqgroup->user))
-				            <td>{{$faqgroup->user->name}}</td>
+				            <td>{{$faq->title}}</td>
+				            @if(!is_null($faq->user))
+				            <td>{{$faq->user->name}}</td>
 				            @else
 				            <td>No Author</td>
 				            @endif
-				            <td>{{$faqgroup->updated_at->diffForHumans()}}</td>
+				            <td>{{$faq->updated_at->diffForHumans()}}</td>
 				            <td>
-				            	<a id="view-faqgroup-{{ $faqgroup->id }}" href="{{route('admin.faqgroups.faqs.index', ['faqgroups' => $faqgroup->id])}}" class="btn btn-link">
-							        View
-							    </a>
-				            	<a id="edit-faqgroup-{{ $faqgroup->id }}" href="{{route('admin.faqgroups.edit', ['faqgroups' => $faqgroup->id])}}" class="btn btn-link">
+				            	<a id="edit-faq-{{ $faq->id }}" href="{{route('admin.faqgroups.faqs.edit', ['faqgroups' => $faqGroup->id, 'faqs' => $faq->id])}}" class="btn btn-link">
 							        Edit
 							    </a>
-				            	<form style="display:inline;" action="{{ route('admin.faqgroups.destroy', ['faqgroups' => $faqgroup->id]) }}" method="POST">
+				            	<form style="display:inline;" action="{{ route('admin.faqgroups.destroy', ['faqgroups' => $faqGroup->id, 'faqs' => $faq->id]) }}" method="POST">
 							        {{ csrf_field() }}
 							        {{ method_field('DELETE') }}
 
-							        <button type="submit" id="delete-faqgroup-{{ $faqgroup->id }}" class="btn btn-link">
+							        <button type="submit" id="delete-faq-{{ $faq->id }}" class="btn btn-link">
 							            Delete
 							        </button>
 							    </form>
