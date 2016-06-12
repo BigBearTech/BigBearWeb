@@ -16,8 +16,9 @@ class AdminTestimonialTest extends TestCase
      */
     public function testAdminTestimonialHome()
     {
-        $user = factory(User::class, 'admin')->make();
+        $user = factory(User::class, 'admin')->create();
         $testimonial = factory(Testimonial::class)->create();
+        $user->testimonials()->save($testimonial);
 
         $this->actingAs($user)
         ->visit('/admin/testimonials')
@@ -28,18 +29,25 @@ class AdminTestimonialTest extends TestCase
      *
      * @return void
      */
-    public function testAdminPostCreate()
+    public function testAdminTestimonialCreate()
     {
         $user = factory(User::class, 'admin')->create();
 
         $this->actingAs($user)
         ->visit('/admin/testimonials/create')
-        ->type('This is a good post', 'name')
-        ->type('This is the posts body', 'content')
+        ->type('John Doe', 'display_name')
+        ->type('J. Doe', 'fullname')
+        ->type('test@bigbearmail.com', 'email')
+        ->type('Portland', 'location')
+        ->type('http:/bigbeartech.com', 'url')
+        ->type('This is a cool testimonial!', 'content')
+        ->select('true', 'display_url')
+        ->select('false', 'featured')
+        ->select('publish', 'status')
         ->press('Save');
 
         $this->seeInDatabase('testimonials', [
-            'fullname' => 'Jane Doe',
+            'display_name' => 'John Doe',
         ]);
     }
 }
