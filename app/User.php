@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Attachment::class);
     }
+
+    public function faqgroups()
+    {
+        return $this->hasMany(FaqGroup::class);
+    }
 }

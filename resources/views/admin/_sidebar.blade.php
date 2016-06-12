@@ -101,6 +101,27 @@
           </ul>
         </li>
         <!-- /.End Testimonials -->
+        <!-- Start FAQs -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-life-ring"></i>
+            <span>FAQ's</span> 
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.faqgroups.index')}}">
+                <span>All FAQ's</span> 
+              </a>
+            </li>
+            <li>
+              <a href="{{route('admin.faqgroups.create')}}">
+                <span>Add New</span> 
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End FAQs -->
         <!-- Start Media -->
         <li class="treeview">
           <a href="#">

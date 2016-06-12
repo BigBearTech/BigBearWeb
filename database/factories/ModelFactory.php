@@ -65,3 +65,10 @@ $factory->define(App\Testimonial::class, function (Faker\Generator $faker) {
         'featured' => false,
     ];
 });
+
+$factory->define(App\FaqGroup::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'description' => $faker->realText,
+    ];
+});
