@@ -28,4 +28,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class);
+    }
+
+    public function faqgroups()
+    {
+        return $this->hasMany(FaqGroup::class);
+    }
+
+    public function testimonials()
+    {
+        return $this->hasMany(Testimonial::class);
+    }
 }

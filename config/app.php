@@ -159,6 +159,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
+        TeamTNT\TNTSearch\TNTSearchServiceProvider::class,
 
     ],
 
@@ -207,6 +208,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Avatar'    => Laravolt\Avatar\Facade::class,
+        'TNTSearch' => TeamTNT\TNTSearch\Facades\TNTSearch::class,
 
     ],
 

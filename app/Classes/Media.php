@@ -2,7 +2,12 @@
 
 namespace App\Classes;
 
+use App\Attachment;
+
 use Illuminate\Support\Facades\Storage;
+
+use Carbon\Carbon;
+use Intervention\Image\ImageManagerStatic as Image;
 
 /**
 * 
@@ -12,10 +17,10 @@ class Media
 	private function createStorageMedia()
 	{
 		$now = Carbon::now();
-		Storage::disk('media')->makeDirectory('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month);
+		Storage::disk('media')->makeDirectory($now->year . DIRECTORY_SEPARATOR . $now->month);
 	}
 
-	public function upload($file)
+	public function upload($file, $db=true)
 	{
 		// Get the vars
 		$now = Carbon::now();
@@ -24,7 +29,9 @@ class Media
 		$getClientOriginalExtension = $file->getClientOriginalExtension();
 		$getSize = $file->getSize();
 		$getMimeType = $file->getMimeType();
-		$path = storage_path('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . );
+		$fileName = \pathinfo($getClientOriginalName, PATHINFO_FILENAME) . '-' . str_random(5) . '.jpg';
+		$fileNameWithoutExtension = \pathinfo($getClientOriginalName, PATHINFO_FILENAME);
+		$path = storage_path('media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . $fileName);
 
 		// Check if it's a valid file
 		if(!$file->isValid())
@@ -41,6 +48,44 @@ class Media
             $constraint->upsize();
         })->save($path);
 
+        // Get the image exif
+        $exif = Image::make($file)->exif();
 
+        // Save image to db
+        if($db)
+        {
+        	$attachment = new Attachment;
+        	$attachment->user_id = auth()->user()->id;
+        	$attachment->path = 'media' . DIRECTORY_SEPARATOR . $now->year . DIRECTORY_SEPARATOR . $now->month . DIRECTORY_SEPARATOR . $fileName;
+        	$attachment->title = $fileNameWithoutExtension;
+        	$attachment->file_name = $fileName;
+        	$attachment->original_name = $getClientOriginalName;
+        	$attachment->original_extension = $getClientOriginalExtension;
+        	$attachment->size = $getSize;
+        	$attachment->mime_type = $getMimeType;
+        	$attachment->exif = $exif;
+        	$attachment->save();
+
+        	return $attachment;
+        }
+
+        return true;
+	}
+
+	public function getImage($image, $query=array())
+	{
+		$queryBuild = http_build_query($query);
+		return url('img' . DIRECTORY_SEPARATOR . $image . '?' . $queryBuild);
+	}
+
+	public function human_filesize($size, $precision = 2) {
+	    $units = array('B','kB','MB','GB','TB','PB','EB','ZB','YB');
+	    $step = 1024;
+	    $i = 0;
+	    while (($size / $step) > 0.9) {
+	        $size = $size / $step;
+	        $i++;
+	    }
+	    return round($size, $precision).$units[$i];
 	}
 }

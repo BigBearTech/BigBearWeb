@@ -35,4 +35,13 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'tntsearch' => [
+        'driver'   => 'mysql',
+        'host'     => env('DB_HOST', 'localhost'),
+        'database' => env('DB_DATABASE'),
+        'username' => env('DB_USERNAME'),
+        'password' => env('DB_PASSWORD'),
+        'storage'  => storage_path('search'),
+    ],
+
 ];

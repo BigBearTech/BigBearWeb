@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/img/{all}', 'GlideController@index')->where('all', '.*')->name('image');
