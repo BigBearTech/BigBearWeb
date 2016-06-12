@@ -7,6 +7,7 @@ Route::resource('pages', 'PageController');
 Route::resource('users', 'UserController');
 Route::resource('comments', 'CommentController');
 Route::resource('media', 'MediaController');
+Route::resource('gallery', 'GalleryController');
 Route::resource('testimonials', 'TestimonialController');
 Route::resource('faqgroups', 'FaqGroupController');
 Route::resource('faqgroups.faqs', 'FaqGroupFaqController');

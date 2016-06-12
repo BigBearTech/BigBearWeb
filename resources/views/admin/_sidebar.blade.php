@@ -143,6 +143,27 @@
           </ul>
         </li>
         <!-- /.End Media -->
+        <!-- Start Photo Gallery -->
+        <li class="treeview">
+          <a href="#">
+            <i style="font-size: inherit;" class="fa material-icons">photo_library</i>
+            <span>Photo Galleries</span> 
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.gallery.index')}}">
+                <span>All Galleries</span> 
+              </a>
+            </li>
+            <li>
+              <a href="{{route('admin.gallery.create')}}">
+                <span>Add New</span> 
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End Photo Gallery -->
         <!-- Start Comments -->
         <li>
           <a href="{{route('admin.comments.index')}}">
