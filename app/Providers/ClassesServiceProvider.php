@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Classes\Theme;
 use App\Classes\Media;
 use App\Classes\Search;
+use App\Classes\Form;
 
 class ClassesServiceProvider extends ServiceProvider
 {
@@ -34,6 +35,9 @@ class ClassesServiceProvider extends ServiceProvider
         });
         $this->app->singleton('Search', function ($app) {
             return new Search();
+        });
+        $this->app->singleton('Form', function ($app) {
+            return new Form();
         });
     }
 }
