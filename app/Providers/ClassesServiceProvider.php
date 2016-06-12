@@ -7,6 +7,7 @@ use App\Classes\Theme;
 use App\Classes\Media;
 use App\Classes\Search;
 use App\Classes\Form;
+use App\Classes\Settings;
 
 class ClassesServiceProvider extends ServiceProvider
 {
@@ -38,6 +39,9 @@ class ClassesServiceProvider extends ServiceProvider
         });
         $this->app->singleton('Form', function ($app) {
             return new Form();
+        });
+        $this->app->singleton('Settings', function ($app) {
+            return new Settings();
         });
     }
 }
