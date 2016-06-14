@@ -72,3 +72,24 @@ $factory->define(App\FaqGroup::class, function (Faker\Generator $faker) {
         'description' => $faker->realText,
     ];
 });
+
+$factory->define(App\Faq::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'description' => $faker->realText,
+    ];
+});
+
+$factory->define(App\Gallery::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'description' => $faker->realText,
+    ];
+});
+
+$factory->define(App\Album::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'description' => $faker->realText,
+    ];
+});

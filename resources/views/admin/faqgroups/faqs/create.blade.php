@@ -3,11 +3,11 @@
 @section('content')
 	<!-- Page Header -->
 	<section class="content-header">
-      <h1>Add New FAQ Group</h1>
+      <h1>Add New FAQ</h1>
       <ol class="breadcrumb">
         <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="{{route('admin.faqgroups.index')}}"><i class="fa fa-thumb-tack"></i> FAQ Groups</a></li>
-        <li class="active">Add New FAQ Group</li>
+        <li class="active">Add New FAQ</li>
       </ol>
     </section>
     <!-- /.End Page Header -->
@@ -15,7 +15,7 @@
 	@include('admin._alerts')
 
 	<section class="content">
-		<form method="post" action="{{route('admin.faqgroups.store')}}">
+		<form method="post" action="{{route('admin.faqgroups.faqs.store', ['faqgroups' => $faqGroup->id])}}">
 			{!! csrf_field() !!}
 	    	<div class="row">
 	        	<div class="col-md-8">

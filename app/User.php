@@ -39,8 +39,23 @@ class User extends Authenticatable
         return $this->hasMany(FaqGroup::class);
     }
 
+    public function faqs()
+    {
+        return $this->hasMany(Faq::class);
+    }
+
     public function testimonials()
     {
         return $this->hasMany(Testimonial::class);
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
     }
 }

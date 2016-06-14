@@ -4,12 +4,13 @@
 	<!-- Page Header -->
 	<section class="content-header">
       <h1>
-        FAQ Groups
-        <small>Your FAQ Groups that hold the FAQ's</small>
+        Photo Galleries
+        <small>Your Photo Galleries</small>
+		<a class="btn btn-primary" href="{{route('admin.gallery.create')}}">Add New</a>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">FAQ Groups</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Photo Galleries</li>
       </ol>
     </section>
     <!-- /.End Page Header -->
@@ -22,6 +23,7 @@
 			        <thead>
 			            <tr>
 			            	<th>Title</th>
+			            	<th>Description</th>
 			            	<th>Author</th>
 			            	<th>Date</th>
 			            	<th>Action</th>
@@ -30,33 +32,31 @@
 				    <tfoot>
 					    <tr>
 					    	<th>Title</th>
+					    	<th>Description</th>
 			            	<th>Author</th>
 			            	<th>Date</th>
 			            	<th>Action</th>
 					    </tr>
 					</tfoot>
 			        <tbody>
-			        	@foreach($faqgroups as $faqgroup)
+			        	@foreach($galleries as $gallery)
 				        <tr>
-				            <td>{{$faqgroup->title}}</td>
-				            @if(!is_null($faqgroup->user))
-				            <td>{{$faqgroup->user->name}}</td>
-				            @else
-				            <td>No Author</td>
-				            @endif
-				            <td>{{$faqgroup->updated_at->diffForHumans()}}</td>
+				            <td>{{$gallery->title}}</td>
+				            <td>{{$gallery->description}}</td>
+				            <td>{{$gallery->user->name}}</td>
+				            <td>{{$gallery->updated_at->diffForHumans()}}</td>
 				            <td>
-				            	<a id="view-faqgroup-{{ $faqgroup->id }}" href="{{route('admin.faqgroups.faqs.index', ['faqgroups' => $faqgroup->id])}}" class="btn btn-link">
+				            	<a id="view-gallery-{{ $gallery->id }}" href="{{route('admin.gallery.album.index', ['gallery' => $gallery->id])}}" class="btn btn-link">
 							        View
 							    </a>
-				            	<a id="edit-faqgroup-{{ $faqgroup->id }}" href="{{route('admin.faqgroups.edit', ['faqgroups' => $faqgroup->id])}}" class="btn btn-link">
+				            	<a id="edit-gallery-{{ $gallery->id }}" href="{{route('admin.gallery.edit', ['gallery' => $gallery->id])}}" class="btn btn-link">
 							        Edit
 							    </a>
-				            	<form style="display:inline;" action="{{ route('admin.faqgroups.destroy', ['faqgroups' => $faqgroup->id]) }}" method="POST">
+				            	<form style="display:inline;" action="{{ route('admin.gallery.destroy', ['gallery' => $gallery->id]) }}" method="POST">
 							        {{ csrf_field() }}
 							        {{ method_field('DELETE') }}
 
-							        <button type="submit" id="delete-faqgroup-{{ $faqgroup->id }}" class="btn btn-link">
+							        <button type="submit" id="delete-gallery-{{ $gallery->id }}" class="btn btn-link">
 							            Delete
 							        </button>
 							    </form>

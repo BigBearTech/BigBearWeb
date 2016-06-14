@@ -2,6 +2,7 @@
 
 use App\User;
 use App\FaqGroup;
+use App\Faq;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -14,14 +15,16 @@ class AdminFaqGroupFaqTest extends TestCase
      *
      * @return void
      */
-    public function testAdminFaqGroupHome()
+    public function testAdminFaqGroupFaqHome()
     {
         $user = factory(User::class, 'admin')->create();
-        $faq = factory(FaqGroup::class)->create();
-        $user->faqgroups()->save($faq);
+        $faqGroup = factory(FaqGroup::class)->create();
+        $user->faqgroups()->save($faqGroup);
+        $faq = factory(Faq::class)->create();
+        $user->faqs()->save($faq);
 
         $this->actingAs($user)
-        ->visit('/admin/faqgroups')
+        ->visit(route('admin.faqgroups.faqs.index', ['faqgroups' => $faqGroup->id]))
         ->see($faq->title);
     }
 
@@ -30,37 +33,42 @@ class AdminFaqGroupFaqTest extends TestCase
      *
      *	@return void
      */
-    public function testAdminFaqGroupCreate()
+    public function testAdminFaqGroupFaqCreate()
     {
     	$user = factory(User::class, 'admin')->create();
+        $faqGroup = factory(FaqGroup::class)->create();
+        $user->faqgroups()->save($faqGroup);
 
     	$this->actingAs($user)
-    	->visit('/admin/faqgroups/create')
-    	->see('Add New FAQ Group')
-    	->type('Testing Group', 'title')
-    	->type('Testing Group description', 'description')
+    	->visit(route('admin.faqgroups.faqs.create', ['faqgroups' => $faqGroup->id]))
+    	->see('Add New FAQ')
+    	->type('Testing FAQ', 'title')
+    	->type('Testing FAQ description', 'description')
     	->press('Save');
 
-    	$this->seeInDatabase('faq_groups', ['title' => 'Testing Group']);
+    	$this->seeInDatabase('faqs', ['title' => 'Testing FAQ']);
     }
 
     /**
-     *	Test the FaqGroup create page.
+     *	Test the Faq edit page.
      *
      *	@return void
      */
-    public function testAdminFaqGroupUpdate()
+    public function testAdminFaqGroupFaqUpdate()
     {
     	$user = factory(User::class, 'admin')->create();
-    	$faqgroup = factory(FaqGroup::class)->create();
+        $faqgroup = factory(FaqGroup::class)->create();
+        $user->faqgroups()->save($faqgroup);
+    	$faq = factory(Faq::class)->create();
+        $user->faqs()->save($faq);
 
     	$this->actingAs($user)
-    	->visit(route('admin.faqgroups.edit', ['faqgroups' => $faqgroup->id]))
-    	->see('Edit FAQ Group')
-    	->type('Testing Group 2', 'title')
-    	->type('Testing Group description', 'description')
+    	->visit(route('admin.faqgroups.faqs.edit', ['faqgroups' => $faqgroup->id, 'faqs' => $faq->id]))
+    	->see('Edit FAQ')
+    	->type('Testing 2', 'title')
+    	->type('Testing description', 'description')
     	->press('Save');
 
-    	$this->seeInDatabase('faq_groups', ['title' => 'Testing Group 2']);
+    	$this->seeInDatabase('faqs', ['title' => 'Testing 2']);
     }
 }

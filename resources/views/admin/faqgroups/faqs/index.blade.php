@@ -4,12 +4,13 @@
 	<!-- Page Header -->
 	<section class="content-header">
       <h1>
-        Comments
-        <small>Your blog post comments</small>
+        FAQ's
+        <small>Your FAQ's that are in groups</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Comments</li>
+        <li><a href="{{route('admin.faqgroups.index')}}"><i class="fa fa-life-ring"></i> FAQ Groups</a></li>
+        <li class="active">FAQ's</li>
       </ol>
     </section>
     <!-- /.End Page Header -->
@@ -21,38 +22,39 @@
 			    <table id="example1" class="table table-bordered table-striped" cellspacing="0" width="100%">
 			        <thead>
 			            <tr>
+			            	<th>Title</th>
 			            	<th>Author</th>
-			            	<th>Comment</th>
-			            	<th>In Response To</th>
-			            	<th>Submitted On</th>
+			            	<th>Date</th>
 			            	<th>Action</th>
 			            </tr>
 			        </thead>
 				    <tfoot>
 					    <tr>
-					    	<th>Author</th>
-					    	<th>Comment</th>
-			            	<th>In Response To</th>
-			            	<th>Submitted On</th>
+					    	<th>Title</th>
+			            	<th>Author</th>
+			            	<th>Date</th>
 			            	<th>Action</th>
 					    </tr>
 					</tfoot>
 			        <tbody>
-			        	@foreach($comments as $comment)
+			        	@foreach($faqs as $faq)
 				        <tr>
-				            <td>{{$comment->name}}</td>
-				            <td>{{$comment->content}}</td>
-				            <td>{{$comment->post->name}}</td>
-				            <td>{{$comment->updated_at->diffForHumans()}}</td>
+				            <td>{{$faq->title}}</td>
+				            @if(!is_null($faq->user))
+				            <td>{{$faq->user->name}}</td>
+				            @else
+				            <td>No Author</td>
+				            @endif
+				            <td>{{$faq->updated_at->diffForHumans()}}</td>
 				            <td>
-				            	<a id="edit-comment-{{ $comment->id }}" href="{{route('admin.comments.edit', ['comments' => $comment->id])}}" class="btn btn-link">
+				            	<a id="edit-faq-{{ $faq->id }}" href="{{route('admin.faqgroups.faqs.edit', ['faqgroups' => $faqGroup->id, 'faqs' => $faq->id])}}" class="btn btn-link">
 							        Edit
 							    </a>
-				            	<form style="display:inline;" action="{{ route('admin.comments.destroy', ['comments' => $comment->id]) }}" method="POST">
+				            	<form style="display:inline;" action="{{ route('admin.faqgroups.destroy', ['faqgroups' => $faqGroup->id, 'faqs' => $faq->id]) }}" method="POST">
 							        {{ csrf_field() }}
 							        {{ method_field('DELETE') }}
 
-							        <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-link">
+							        <button type="submit" id="delete-faq-{{ $faq->id }}" class="btn btn-link">
 							            Delete
 							        </button>
 							    </form>

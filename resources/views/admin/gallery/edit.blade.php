@@ -3,11 +3,11 @@
 @section('content')
 	<!-- Page Header -->
 	<section class="content-header">
-      <h1>Add New FAQ Group</h1>
+      <h1>Edit Photo Gallery</h1>
       <ol class="breadcrumb">
         <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="{{route('admin.faqgroups.index')}}"><i class="fa fa-thumb-tack"></i> FAQ Groups</a></li>
-        <li class="active">Add New FAQ Group</li>
+        <li><a href="{{route('admin.gallery.index')}}"><i style="font-size: inherit;" class="fa material-icons">photo_library</i> Galleries</a></li>
+        <li class="active">Edit Photo Gallery</li>
       </ol>
     </section>
     <!-- /.End Page Header -->
@@ -15,17 +15,16 @@
 	@include('admin._alerts')
 
 	<section class="content">
-		<form method="post" action="{{route('admin.faqgroups.store')}}">
+		<form method="post" action="{{route('admin.gallery.update', ['gallery' => $gallery->id])}}">
 			{!! csrf_field() !!}
+			{!! method_field('put') !!}
 	    	<div class="row">
 	        	<div class="col-md-8">
 					<div class="form-group">
-						<label>Title</label>
-						<input type="text" name="title" value="{{old('title')}}" class="form-control input-lg">
+						<input type="text" placeholder="Enter title here" name="title" value="{{old('title', $gallery->title)}}" class="form-control input-lg">
 					</div>
 					<div class="form-group">
-						<label>Description</label>
-						<textarea name="description" class="form-control">{!! old('description') !!}</textarea>
+						<textarea name="description" placeholder="Type..." class="form-control">{!! old('description', $gallery->description) !!}</textarea>
 					</div>
 				</div>
 				<div class="col-md-4">
