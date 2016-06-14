@@ -12,7 +12,8 @@
         "intervention/image": "^2.3",
         "league/glide": "^1.0",
         "league/glide-laravel": "^1.0",
-        "teamtnt/tntsearch": "^0.6.3"
+        "teamtnt/tntsearch": "^0.6.3",
+        "rmccue/requests": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
