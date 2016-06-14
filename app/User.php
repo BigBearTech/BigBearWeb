@@ -48,4 +48,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Testimonial::class);
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
 }
