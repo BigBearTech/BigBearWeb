@@ -8,7 +8,7 @@
         <small>Your blog post comments</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li class="active">Comments</li>
       </ol>
     </section>

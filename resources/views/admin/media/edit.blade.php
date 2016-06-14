@@ -5,7 +5,7 @@
 	<section class="content-header">
       <h1>Edit Attachment</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="{{route('admin.media.index')}}"><i class="fa fa-picture-o"></i> Media</a></li>
         <li class="active">Edit Attachment</li>
       </ol>

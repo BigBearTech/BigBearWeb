@@ -5,7 +5,7 @@
 	<section class="content-header">
       <h1>Edit FAQ</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="{{route('admin.faqgroups.index')}}"><i class="fa fa-thumb-tack"></i> FAQ Groups</a></li>
         <li class="active">Edit FAQ</li>
       </ol>

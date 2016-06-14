@@ -5,7 +5,7 @@
 	<section class="content-header">
       <h1>Add New Photo Gallery</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="{{route('admin.gallery.index')}}"><i class="fa fa-thumb-tack"></i> Posts</a></li>
         <li class="active">Add New Photo Gallery</li>
       </ol>
