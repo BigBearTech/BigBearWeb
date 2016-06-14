@@ -9,6 +9,7 @@ Route::resource('comments', 'CommentController');
 Route::resource('media', 'MediaController');
 Route::resource('gallery', 'GalleryController');
 Route::resource('gallery.album', 'GalleryAlbumController');
+Route::resource('gallery.album.photo', 'GalleryAlbumPhotoController');
 Route::resource('testimonials', 'TestimonialController');
 Route::resource('faqgroups', 'FaqGroupController');
 Route::resource('faqgroups.faqs', 'FaqGroupFaqController');
