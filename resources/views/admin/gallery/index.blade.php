@@ -6,6 +6,7 @@
       <h1>
         Photo Galleries
         <small>Your Photo Galleries</small>
+		<a class="btn btn-primary" href="{{route('admin.gallery.create')}}">Add New</a>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
