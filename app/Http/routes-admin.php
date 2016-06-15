@@ -13,3 +13,4 @@ Route::resource('gallery.album.photo', 'GalleryAlbumPhotoController');
 Route::resource('testimonials', 'TestimonialController');
 Route::resource('faqgroups', 'FaqGroupController');
 Route::resource('faqgroups.faqs', 'FaqGroupFaqController');
+Route::resource('menu', 'MenuController');
