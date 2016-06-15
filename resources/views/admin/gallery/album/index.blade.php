@@ -47,17 +47,17 @@
 				            <td>{{$album->user->name}}</td>
 				            <td>{{$album->updated_at->diffForHumans()}}</td>
 				            <td>
-				            	<a id="view-gallery-{{ $album->id }}" href="{{route('admin.gallery.album.index', ['gallery' => $gallery->id])}}" class="btn btn-link">
+				            	<a id="view-album-{{ $album->id }}" href="{{route('admin.gallery.album.photo.index', ['gallery' => $gallery->id, 'album' => $album->id])}}" class="btn btn-link">
 							        View
 							    </a>
-				            	<a id="edit-gallery-{{ $album->id }}" href="{{route('admin.gallery.edit', ['gallery' => $album->id])}}" class="btn btn-link">
+				            	<a id="edit-album-{{ $album->id }}" href="{{route('admin.gallery.album.edit', ['gallery' => $gallery->id, 'album' => $album->id])}}" class="btn btn-link">
 							        Edit
 							    </a>
-				            	<form style="display:inline;" action="{{ route('admin.gallery.destroy', ['gallery' => $album->id]) }}" method="POST">
+				            	<form style="display:inline;" action="{{ route('admin.gallery.album.destroy', ['gallery' => $album->id, 'album' => $album->id]) }}" method="POST">
 							        {{ csrf_field() }}
 							        {{ method_field('DELETE') }}
 
-							        <button type="submit" id="delete-gallery-{{ $album->id }}" class="btn btn-link">
+							        <button type="submit" id="delete-album-{{ $album->id }}" class="btn btn-link">
 							            Delete
 							        </button>
 							    </form>
