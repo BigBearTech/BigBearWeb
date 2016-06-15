@@ -45,6 +45,9 @@ class SettingsClassTest extends TestCase
 
         $getMultpleSetting = $getSetting->where('name', 'testing')->first();
 
+		$showSetting = app('Settings')->show($getSetting, 'testing');
+
         $this->assertTrue($getMultpleSetting->value === '123');
+		$this->assertTrue($showSetting === '123');
     }
 }

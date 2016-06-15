@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ class AdminController extends Controller
     public function index()
     {
     	$countUsers = User::count();
-    	return view('admin.home')->with(compact('countUsers'));
+		$countPosts = Post::where('post_type', 'post')->count();
+		$countPages = Post::where('post_type', 'page')->count();
+    	return view('admin.home')->with(compact('countUsers', 'countPosts', 'countPages'));
     }
 }

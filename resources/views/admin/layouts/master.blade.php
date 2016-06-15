@@ -38,7 +38,7 @@
         @yield('content')
         </div>
         @include('admin._footer')
-        <div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
+        @include('admin._control-sidebar')
     </div>
 
     <!-- JavaScripts -->

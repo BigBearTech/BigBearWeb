@@ -33,8 +33,8 @@
         <!-- Start Dashboard -->
         <li>
           <a href="{{url('/admin')}}">
-            <i class="fa fa-dashboard"></i> 
-            <span>Dashboard</span> 
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
           </a>
         </li>
         <!-- /.End Dashboard -->
@@ -43,17 +43,17 @@
           <a href="#">
             <i class="fa fa-thumb-tack"></i>
             <span>Posts</span>
-            <i class="fa fa-angle-left pull-right"></i> 
+            <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
               <a href="{{route('admin.posts.index')}}">
-                <span>All Posts</span> 
+                <span>All Posts</span>
               </a>
             </li>
             <li>
               <a href="{{route('admin.posts.create')}}">
-                <span>Add New</span> 
+                <span>Add New</span>
               </a>
             </li>
           </ul>
@@ -63,18 +63,18 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
-            <span>Pages</span> 
+            <span>Pages</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
               <a href="{{route('admin.pages.index')}}">
-                <span>All Pages</span> 
+                <span>All Pages</span>
               </a>
             </li>
             <li>
               <a href="{{route('admin.pages.create')}}">
-                <span>Add New</span> 
+                <span>Add New</span>
               </a>
             </li>
           </ul>
@@ -84,18 +84,18 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-commenting"></i>
-            <span>Testimonials</span> 
+            <span>Testimonials</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
               <a href="{{route('admin.testimonials.index')}}">
-                <span>All Testimonials</span> 
+                <span>All Testimonials</span>
               </a>
             </li>
             <li>
               <a href="{{route('admin.testimonials.create')}}">
-                <span>Add New</span> 
+                <span>Add New</span>
               </a>
             </li>
           </ul>
@@ -105,18 +105,18 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-life-ring"></i>
-            <span>FAQ's</span> 
+            <span>FAQ's</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
               <a href="{{route('admin.faqgroups.index')}}">
-                <span>All FAQ's</span> 
+                <span>All FAQ's</span>
               </a>
             </li>
             <li>
               <a href="{{route('admin.faqgroups.create')}}">
-                <span>Add New</span> 
+                <span>Add New</span>
               </a>
             </li>
           </ul>
@@ -126,18 +126,18 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-picture-o"></i>
-            <span>Media</span> 
+            <span>Media</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
               <a href="{{route('admin.media.index')}}">
-                <span>All Media</span> 
+                <span>All Media</span>
               </a>
             </li>
             <li>
               <a href="{{route('admin.media.create')}}">
-                <span>Add New</span> 
+                <span>Add New</span>
               </a>
             </li>
           </ul>
@@ -147,18 +147,18 @@
         <li class="treeview">
           <a href="#">
             <i style="font-size: inherit;" class="fa material-icons">photo_library</i>
-            <span>Photo Galleries</span> 
+            <span>Photo Galleries</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
               <a href="{{route('admin.gallery.index')}}">
-                <span>All Galleries</span> 
+                <span>All Galleries</span>
               </a>
             </li>
             <li>
               <a href="{{route('admin.gallery.create')}}">
-                <span>Add New</span> 
+                <span>Add New</span>
               </a>
             </li>
           </ul>
@@ -168,7 +168,7 @@
         <li>
           <a href="{{route('admin.comments.index')}}">
             <i class="fa fa-comments-o"></i>
-            <span>Comments</span> 
+            <span>Comments</span>
           </a>
         </li>
         <!-- /.End Pages -->
@@ -176,18 +176,13 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-paint-brush"></i>
-            <span>Appearance</span> 
+            <span>Appearance</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="{{route('admin.users.index')}}">
-                <span>All Users</span> 
-              </a>
-            </li>
-            <li>
-              <a href="{{route('admin.users.create')}}">
-                <span>Add New</span> 
+              <a href="{{route('admin.menu.index')}}">
+                <span>Menus</span>
               </a>
             </li>
           </ul>
@@ -197,18 +192,34 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i>
-            <span>Users</span> 
+            <span>Users</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li>
               <a href="{{route('admin.users.index')}}">
-                <span>All Users</span> 
+                <span>All Users</span>
               </a>
             </li>
             <li>
               <a href="{{route('admin.users.create')}}">
-                <span>Add New</span> 
+                <span>Add New</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End Users -->
+        <!-- Start Users -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cogs"></i>
+            <span>Settings</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.setting.general')}}">
+                <span>General</span>
               </a>
             </li>
           </ul>
