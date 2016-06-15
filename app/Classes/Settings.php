@@ -5,7 +5,7 @@ namespace App\Classes;
 use App\Setting;
 
 /**
-* 
+*
 */
 class Settings
 {
@@ -21,10 +21,17 @@ class Settings
 	 */
 	public function add($name, $value)
 	{
-		$setting = new Setting;
-		$setting->name = $name;
-		$setting->value = $value;
-		$setting->save();
+		$setting = Setting::where('name', $name)->first();
+
+		if($setting) {
+			$setting->value = $value;
+			$setting->save();
+		} else {
+			$setting = new Setting;
+			$setting->name = $name;
+			$setting->value = $value;
+			$setting->save();
+		}
 
 		return $setting;
 	}
