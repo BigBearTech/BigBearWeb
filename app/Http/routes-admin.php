@@ -14,3 +14,7 @@ Route::resource('testimonials', 'TestimonialController');
 Route::resource('faqgroups', 'FaqGroupController');
 Route::resource('faqgroups.faqs', 'FaqGroupFaqController');
 Route::resource('menu', 'MenuController');
+
+// Settings
+Route::get('settings/general', 'SettingController@getGeneral')->name('admin.setting.general');
+Route::post('settings/general', 'SettingController@postGeneral')->name('admin.setting.general.store');

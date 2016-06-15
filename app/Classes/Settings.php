@@ -23,6 +23,10 @@ class Settings
 	{
 		$setting = Setting::where('name', $name)->first();
 
+		if(is_array($value)) {
+			$value = json_encode($value);
+		}
+
 		if($setting) {
 			$setting->value = $value;
 			$setting->save();
@@ -50,4 +54,20 @@ class Settings
 		}
 		return $settings;
 	}
+
+	/**
+	 *	Get one setting or multiples.
+	 *
+	 *	@return Model
+	 */
+	public function show($setting, $name)
+	{
+		$getSetting = $setting->where('name', $name)->first();
+		if($getSetting) {
+			return $getSetting->value;
+		}
+		return '';
+	}
+
+
 }

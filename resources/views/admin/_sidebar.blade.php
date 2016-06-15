@@ -209,6 +209,22 @@
           </ul>
         </li>
         <!-- /.End Users -->
+        <!-- Start Users -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cogs"></i>
+            <span>Settings</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{route('admin.setting.general')}}">
+                <span>General</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- /.End Users -->
       </ul>
       <!-- /.sidebar-menu -->
     </section>
