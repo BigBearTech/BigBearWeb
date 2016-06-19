@@ -38,7 +38,7 @@ class AdminMediaTest extends TestCase
 	private function uploadImage($user)
 	{
 		Storage::disk('media')->deleteDirectory(\Carbon\Carbon::now()->year);
-		$file = $this->prepareFileUpload('public/upload/upload.jpg');
+		$file = $this->prepareFileUpload('public/upload/test.png');
 
         $this->actingAs($user);
 	    $this->call('POST', '/admin/media', [], [], ['file' => $file], []);

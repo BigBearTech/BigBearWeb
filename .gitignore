@@ -7,5 +7,5 @@ Homestead.json
 /resources/assets/bower
 /resources/laravolt
 /storage/media
-/public/upload
 /storage/search
+/wordpress.xml
