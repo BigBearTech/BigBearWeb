@@ -10,13 +10,6 @@ php:
 env:
   global:
     - setup=basic
-    - APP_ENV=staging
-    - APP_DEBUG=true
-    - APP_KEY=xxxx
-    - DB_CONNECTION=sqlite
-    - CACHE_DRIVER=file
-    - SESSION_DRIVER=file
-    - QUEUE_DRIVER=sync
 
 matrix:
   include:
@@ -35,6 +28,5 @@ install:
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
   - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable; fi
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable; fi
-  - travis_retry php artisan key:generate
 
 script: vendor/bin/phpunit
