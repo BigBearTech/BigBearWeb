@@ -29,7 +29,7 @@ sudo: false
 
 before_install:
   - travis_retry composer self-update
-  - cp .env.travis .env
+  - travis_retry mv .env.travis .env
 
 install:
   - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
