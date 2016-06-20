@@ -11,19 +11,19 @@ Is a full featured Content Management System. We are in the early stages of deve
 I think everything can be improved upon! I've tried allot of CMS's and they don't have all the things you need in a great website. Yes you can go to Plugins for those certain things but then you have to rely on the 3rd party developer to keep maintenance up.
 
 # Goals
- - [] Setup guide when the user firsts installs it!
- - [] Blog System
- - [] Pages
+ - [ ] Setup guide when the user firsts installs it!
+ - [ ] Blog System
+ - [ ] Pages
  - [x] Testimonials
- - [] FAQ's
- - [] Media System
- - [] Photo Galleries
- - [] Comment System - Self Hosted - disqus
+ - [ ] FAQ's
+ - [ ] Media System
+ - [ ] Photo Galleries
+ - [ ] Comment System - Self Hosted - disqus
  - [x] User System
- - [] Full Featured API - For external apps
- - [] Theme System
- - [] Mod/Plugin System
- - [] Best Practices for SEO
+ - [ ] Full Featured API - For external apps
+ - [ ] Theme System
+ - [ ] Mod/Plugin System
+ - [ ] Best Practices for SEO
 
 ## Ideas
 
