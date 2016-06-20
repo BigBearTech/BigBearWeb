@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+// Image glide
 Route::get('/img/{all}', 'GlideController@index')->where('all', '.*')->name('image');
