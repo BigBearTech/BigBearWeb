@@ -96,7 +96,7 @@ $factory->define(App\Album::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Code::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->name,
-        'description' => $faker->realText,
+        'name' => $faker->name,
+        'content' => $faker->realText,
     ];
 });
