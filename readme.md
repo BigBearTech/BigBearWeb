@@ -1,6 +1,7 @@
 # Big Bear Web
 
 [![Build Status](https://travis-ci.org/BigBearTech/BigBearWeb.svg)](https://travis-ci.org/BigBearTech/BigBearWeb)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BigBearTech/BigBearWeb/master/LICENSE.txt)
 
 Is a full featured Content Management System. We are in the early stages of development. It's built on the awesome Laravel Framework.
 
