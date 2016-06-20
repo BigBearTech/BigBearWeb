@@ -15,8 +15,8 @@ I think everything can be improved upon! I've tried allot of CMS's and they don'
  - [ ] Blog System
  - [ ] Pages
  - [x] Testimonials
- - [ ] FAQ's
- - [ ] Media System
+ - [x] FAQ's
+ - [x] Media System
  - [ ] Photo Galleries
  - [ ] Comment System - Self Hosted - disqus
  - [x] User System
