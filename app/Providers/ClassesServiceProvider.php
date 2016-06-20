@@ -3,11 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Classes\Theme;
+use App\Classes\Form;
 use App\Classes\Media;
 use App\Classes\Search;
-use App\Classes\Form;
 use App\Classes\Settings;
+use App\Classes\Theme;
+use App\Classes\Xml;
 
 class ClassesServiceProvider extends ServiceProvider
 {
@@ -28,8 +29,8 @@ class ClassesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Theme', function ($app) {
-            return new Theme();
+        $this->app->singleton('Form', function ($app) {
+            return new Form();
         });
         $this->app->singleton('Media', function ($app) {
             return new Media();
@@ -37,11 +38,14 @@ class ClassesServiceProvider extends ServiceProvider
         $this->app->singleton('Search', function ($app) {
             return new Search();
         });
-        $this->app->singleton('Form', function ($app) {
-            return new Form();
-        });
         $this->app->singleton('Settings', function ($app) {
             return new Settings();
+        });
+        $this->app->singleton('Theme', function ($app) {
+            return new Theme();
+        });
+        $this->app->singleton('Xml', function ($app) {
+            return new Xml();
         });
     }
 }

@@ -1,27 +1,40 @@
-# Laravel PHP Framework
+# Big Bear Web
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Build Status](https://travis-ci.org/BigBearTech/BigBearWeb.svg)](https://travis-ci.org/BigBearTech/BigBearWeb)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Is a full featured Content Management System. We are in the early stages of development. It's built on the awesome Laravel Framework.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+# Why Another CMS
 
-## Official Documentation
+I think everything can be improved upon! I've tried allot of CMS's and they don't have all the things you need in a great website. Yes you can go to Plugins for those certain things but then you have to rely on the 3rd party developer to keep maintenance up.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+# Goals
+ - Setup guide when the user firsts installs it!
+ - Blog System
+ - Pages
+ - Testimonials
+ - FAQ's
+ - Media System
+ - Photo Galleries
+ - Comment System - Self Hosted - disqus
+ - User System
+ - Full Featured API - For external apps
+ - Theme System
+ - Mod/Plugin System
+ - Best Practices for SEO
 
-## Contributing
+## Ideas
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+If you have ideas or how to make Big Bear Web better feel free to send a email to ideas@bigbeartech.com.
+
+## Currently using
+ - Laravel Framework 5.2
+ - AdminLTE - This is used for the Admin Panel Theme
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within BigBearWeb, please send an e-mail to security@bigbeartech.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Big Bear Web is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

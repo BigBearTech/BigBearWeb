@@ -71,7 +71,7 @@ class AdminGalleryAlbumPhotoTest extends TestCase
         $user->albums()->save($album);
         $gallery->albums()->save($album);
 
-        $file = $this->prepareFileUpload('public/upload/upload.jpg');
+        $file = $this->prepareFileUpload('public/upload/test.png');
 
         $this->actingAs($user);
 	    $this->call('POST', route('admin.gallery.album.photo.store', ['gallery' => $gallery->id, 'album' => $album->id]), [], [], ['file' => $file], []);
