@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Code;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class CodeController extends Controller
      */
     public function index()
     {
-        return view('admin.code.index');
+        $codes = Code::all();
+        return view('admin.code.index', ['codes' => $codes]);
     }
 }
