@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/BigBearTech/BigBearWeb.svg)](https://travis-ci.org/BigBearTech/BigBearWeb)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BigBearTech/BigBearWeb/master/LICENSE.txt)
+[![Gitter](https://badges.gitter.im/BigBearTech/BigBearWeb.svg)](https://gitter.im/BigBearTech/BigBearWeb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 Is a full featured Content Management System. We are in the early stages of development. It's built on the awesome Laravel Framework.
 
