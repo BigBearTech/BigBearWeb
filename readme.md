@@ -1,5 +1,7 @@
 # Big Bear Web
 
+[![Join the chat at https://gitter.im/BigBearTech/BigBearWeb](https://badges.gitter.im/BigBearTech/BigBearWeb.svg)](https://gitter.im/BigBearTech/BigBearWeb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/BigBearTech/BigBearWeb.svg)](https://travis-ci.org/BigBearTech/BigBearWeb)
 
 Is a full featured Content Management System. We are in the early stages of development. It's built on the awesome Laravel Framework.
