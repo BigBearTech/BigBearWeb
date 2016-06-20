@@ -185,6 +185,12 @@
                 <span>Menus</span>
               </a>
             </li>
+            <li>
+              <a href="{{route('admin.code.index')}}">
+                <i class="fa fa-code"></i>
+                <span>Template Codes</span>
+              </a>
+            </li>
           </ul>
         </li>
         <!-- /.End Appearance -->
