@@ -14,6 +14,7 @@ Route::resource('testimonials', 'TestimonialController');
 Route::resource('faqgroups', 'FaqGroupController');
 Route::resource('faqgroups.faqs', 'FaqGroupFaqController');
 Route::resource('menu', 'MenuController');
+Route::resource('code', 'CodeController');
 
 // Settings
 Route::get('settings/general', 'SettingController@getGeneral')->name('admin.setting.general');

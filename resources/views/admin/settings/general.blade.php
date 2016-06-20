@@ -38,6 +38,15 @@
 						<p class="help-block">It is up to search engines to honor this request.</p>
   					</div>
 
+					<div class="form-group">
+						<label for="site_title">Editor</label>
+						<select class="form-control" name="editor">
+							<option {{app('Form')->isActive(app('Settings')->show($setting, 'editor'), 'ckeditor', 'selected')}} value="ckeditor">CKEditor</option>
+							<option {{app('Form')->isActive(app('Settings')->show($setting, 'editor'), 'simplemde', 'selected')}} value="simplemde">Simplemde (Markdown)</option>
+						</select>
+						<p class="help-block">Pick a editor for the Posts & Pages.</p>
+					</div>
+
                     <input type="submit" class="btn btn-primary" name="submit" value="Save Changes">
                 </form>
 			</div>

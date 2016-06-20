@@ -59,7 +59,7 @@ class RouteServiceProvider extends ServiceProvider
             require app_path('Http/routes.php');
         });
         $router->group([
-            'namespace' => $this->namespaceAdmin, 'middleware' => 'web', 'prefix' => 'admin',
+            'namespace' => $this->namespaceAdmin, 'middleware' => 'web', 'prefix' => config('bigbearweb.admin_panel_url', 'admin'),
         ], function ($router) {
             require app_path('Http/routes-admin.php');
         });

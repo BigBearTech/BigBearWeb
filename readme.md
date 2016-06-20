@@ -1,6 +1,8 @@
 # Big Bear Web
 
 [![Build Status](https://travis-ci.org/BigBearTech/BigBearWeb.svg)](https://travis-ci.org/BigBearTech/BigBearWeb)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BigBearTech/BigBearWeb/master/LICENSE.txt)
+[![Gitter](https://badges.gitter.im/BigBearTech/BigBearWeb.svg)](https://gitter.im/BigBearTech/BigBearWeb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 Is a full featured Content Management System. We are in the early stages of development. It's built on the awesome Laravel Framework.
 
@@ -9,19 +11,19 @@ Is a full featured Content Management System. We are in the early stages of deve
 I think everything can be improved upon! I've tried allot of CMS's and they don't have all the things you need in a great website. Yes you can go to Plugins for those certain things but then you have to rely on the 3rd party developer to keep maintenance up.
 
 # Goals
- - Setup guide when the user firsts installs it!
- - Blog System
- - Pages
- - Testimonials
- - FAQ's
- - Media System
- - Photo Galleries
- - Comment System - Self Hosted - disqus
- - User System
- - Full Featured API - For external apps
- - Theme System
- - Mod/Plugin System
- - Best Practices for SEO
+ - [ ] Setup guide when the user firsts installs it!
+ - [ ] Blog System
+ - [ ] Pages
+ - [x] Testimonials
+ - [x] FAQ's
+ - [x] Media System
+ - [ ] Photo Galleries
+ - [ ] Comment System - Self Hosted - disqus
+ - [x] User System
+ - [ ] Full Featured API - For external apps
+ - [ ] Theme System
+ - [ ] Mod/Plugin System
+ - [ ] Best Practices for SEO
 
 ## Ideas
 
